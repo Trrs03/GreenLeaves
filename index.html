@@ -1,19 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+	<link rel="stylesheet" type="text/css" href="css/index_style.css">
+	<link rel="shortcut icon" type="image/x-icon" href="../EctoTec/img/leaf.png">
 	<title>Green Leaves</title>
+	<meta charset="utf-8"/>
 </head>
-<body>
-	<h1>Green Leaves</h1>
-	<form>
-		<p>Nombre</p><input>
-		<p>E-Mail</p><input>
-		<p>Telefono</p><input>
-		<p>Fecha</p><input>
-		<p>Ciudad y Estado</p><input>
+<body ng-app>
+	<h1>Green Leaves<img align="right" src="../EctoTec/img/leaf.png"></h1>
+	<form method="POST" target="_blank">
+		<label>Nombre:</label>
+			<input type="text" required placeholder="Nombre Apellido"><br>
+		<label>E-Mail:</label>
+			<input type="email" required placeholder="correo@email.com"><br>
+		<label>Telefono:</label>
+			<input type="tel" required pattern="\([0-9]{3}\) [0-9]{3}[ -][0-9]{4}" placeholder="(555) 555-5555"><br>
+		<label>Fecha:</label>
+  				<input type="date" required min="1918-08-03" max="2020-12-31" ><br>
+		<label>Ciudad y Estado:</label>
+			<input type="text" required placeholder="Monterrey, Nuevo León"><br><br>
 
-		<button>Enviar</button>
+		<!--select id="country" disabled="disabled"></select-->
+
+		<input type="submit">
 	</form>
 
 </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="http://tompi.github.io/jeoquery/jeoquery.js"></script>
+<script>
+
+	$("#country").jeoCountrySelect({
+    	callback: function () {
+    	$("#country").removeAttr('disabled');
+    		}
+    	});
+
+</script>
 </html>
