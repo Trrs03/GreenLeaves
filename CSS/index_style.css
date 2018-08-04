@@ -1,0 +1,27 @@
+*
+{
+	padding: 0px;
+	margin: 0px;
+}
+
+body
+{
+	text-align: center;
+}
+
+h1
+{
+	background-color: rgb(43, 255, 35);
+	border-radius: 0.5em;
+	color: white;
+	height: 100px;
+	margin: 5%;
+	text-align: left;
+	text-shadow: 3px 3px 5px rgba(0,0,0,0.5);
+}
+
+img
+{
+	border: 10%;
+	width: 8%;
+}
