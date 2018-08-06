@@ -25,3 +25,13 @@ img
 	border: 10%;
 	width: 8%;
 }
+
+#message
+{
+	margin: 5%;
+	text-align: left;
+}
+#GreenLeaves
+{
+	color: green;
+}
