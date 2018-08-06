@@ -8,35 +8,49 @@
 </head>
 <body ng-app>
 	<h1>Green Leaves<img align="right" src="../EctoTec/img/leaf.png"></h1>
-	<form method="POST" target="_blank">
+	<!--form method="GET" id="message" action="mensaje.html"-->
+	<form method="GET" id="message">
 		<label>Nombre:</label>
-			<input type="text" required placeholder="Nombre Apellido"><br>
+			<input type="text" id="nombre" required placeholder="Nombre Apellido"><br>
 		<label>E-Mail:</label>
-			<input type="email" required placeholder="correo@email.com"><br>
+			<input type="email" id="email" required placeholder="correo@email.com"><br>
 		<label>Telefono:</label>
-			<input type="tel" required pattern="\([0-9]{3}\) [0-9]{3}[ -][0-9]{4}" placeholder="(555) 555-5555"><br>
+			<input type="tel" id="telefono" required pattern="\([0-9]{3}\) [0-9]{3}[ -][0-9]{4}" placeholder="(555) 555-5555"><br>
 		<label>Fecha:</label>
-  				<input type="date" required min="1918-08-03" max="2020-12-31" ><br>
+  				<input type="date" id="fecha" required min="1918-08-03" max="2020-12-31" ><br>
 		<label>Ciudad y Estado:</label>
-			<input type="text" required placeholder="Monterrey, Nuevo León"><br><br>
+			<input type="text" id="mapsearch" required placeholder="Monterrey, Nuevo León"><br><br>
 
 		<!--select id="country" disabled="disabled"></select-->
 
-		<input type="submit">
+		<button onclick="myFunction()">Enviar</button>
+		<!--input type="submit"-->
 	</form>
 
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script src="http://tompi.github.io/jeoquery/jeoquery.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyB6K1CFUQ1RwVJ-nyXxd6W0rfiIBe12Q&libraries=places"></script>
+
 <script>
 
-	$("#country").jeoCountrySelect({
-    	callback: function () {
-    	$("#country").removeAttr('disabled');
-    		}
-    	});
+	var nombre = document.getElementById('nombre').value;
+	var email = document.getElementById('email').value;
+	var telefono = document.getElementById('telefono').value;
+	var fecha = document.getElementById('fecha').value;
+	var ciudad = document.getElementById('ciudad').value;
+
+	function myFunction() {
+    	document.getElementById("message").innerHTML = "Estimado "+nombre+",<br><br> Hemos recibido sus datos y nos pondremos en contacto con usted en la brevedad posible. Enviaremos un correo con información a su cuenta: "+email+"<br><br> Atte. <br>Green Leaves<br> "+ciudad+" a "+fecha+".";
+	}
 
 </script>
+
+<script type="text/javascript">
+	
+	var searchBox = new google.maps.places.SearchBox(document.getElementById('mapsearch'));
+
+</script>
+
 </html>
